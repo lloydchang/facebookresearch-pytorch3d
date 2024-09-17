@@ -5,10 +5,20 @@
 # This source code is licensed under the BSD-style license found in the
 # LICENSE file in the root directory of this source tree.
 
+import sys
+
+# Check for torch first
+try:
+    import torch
+    print(f"PyTorch version {torch.__version__} found.")
+except ImportError:
+    print("ERROR: PyTorch not found. Please install PyTorch before proceeding.")
+    print("You can install PyTorch from https://pytorch.org/get-started/locally/")
+    sys.exit(1)
+
 import glob
 import os
 import runpy
-import sys
 import warnings
 from typing import List, Optional
 
